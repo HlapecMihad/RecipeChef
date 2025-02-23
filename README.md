@@ -10,7 +10,8 @@ Before you begin, ensure you have the following versions installed:
 - **node**: 23.6.1 (`node --version`)
 
 ## Caution
-You need to get your own API key from "https://huggingface.co/" and put it into "./src/jsfunctions/ai.js".   Change "const hf = new HfInference(import.meta.env.VITE_HF_ACCESS_TOKEN)" to "const hf = new HfInference(YOUR API KEY !!!)", otherwise you won't be able to get back the recipe based on ingredients and servings.
+You need to get your own API key from "https://huggingface.co/" and put it into "./src/jsfunctions/ai.js".  
+Change "const hf = new HfInference(import.meta.env.VITE_HF_ACCESS_TOKEN)" to "const hf = new HfInference(YOUR API KEY !!!)", otherwise you won't be able to get back the recipe based on ingredients and servings.
 
 ## Getting Started
 
