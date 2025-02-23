@@ -1,27 +1,41 @@
+import { useState } from "react";
+import ClaudeRecipe from "./ClaudeRecipe";
+import IngredientsList from "./IngredientsList";
+
 export default function Main() {
-    const ingredients = ["Chicken", "Oregano", "Tomatoes"]
+	const [ingredients, setIngredients] = useState([
+		"all the main spices",
+		"pasta",
+		"ground beef",
+		"tomato paste",
+	]);
 
-    const mappedIngredients = ingredients.map(ingredient => (
-        <li key={ingredient}>{ingredient}</li>
-    ))
+	const [recipeShown, setRecipeShown] = useState(false);
 
-    function handleSubmit() {
-        console.log("Form submitted!")
-    }
+	function addIngredient(formData) {
+		const newIngredient = formData.get("ingredient");
+		setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
+	}
 
-    return (
-        <main>
-            <form className="add-ingredient-form" onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="e.g. oregano"
-                    aria-label="Add ingridient"
-                />
-                <button>Add ingridient</button>
-            </form>
-            <ul>
-                {mappedIngredients}
-            </ul>
-        </main>
-    )
+	function getRecipe() {
+		setRecipeShown((prevRecipe) => !prevRecipe);
+	}
+
+	return (
+		<main>
+			<form className="add-ingredient-form" action={addIngredient}>
+				<input
+					type="text"
+					placeholder="e.g. oregano"
+					aria-label="Add ingridient"
+					name="ingredient"
+				/>
+				<button>Add ingridient</button>
+			</form>
+			{ingredients.length > 0 ? (
+				<IngredientsList recipe={getRecipe} ingredients={ingredients} />
+			) : null}
+			{recipeShown ? <ClaudeRecipe /> : null}
+		</main>
+	);
 }
