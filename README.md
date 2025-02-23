@@ -9,6 +9,9 @@ Before you begin, ensure you have the following versions installed:
 - **npm**: 10.9.2 (`npm -v`)
 - **node**: 23.6.1 (`node --version`)
 
+## Caution
+You need to get your own API key from "https://huggingface.co/" and put it into "./jsfunctions/ai.js" for "const hf", otherwise you won't be able to get back the recipe based on ingredients and servings.
+
 ## Getting Started
 
 ### To run this project on your local machine, follow these steps (if you are using vscode and cmd):
